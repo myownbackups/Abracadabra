@@ -30,14 +30,14 @@ export class WenyanConfig {
    *
    * @param{bool}PunctuationMark 指定是否为密文添加标点符号，默认 true/添加;
    * @param{int}RandomIndex 密文算法的随机程度，越大随机性越强，默认 50，最大100，超过100将会出错;
-   * @param{Array}RandomPragraphing 密文所使用的分段函数每段载荷上下限。传入 min 和 max，默认 35/80。min 小于 35 或者 max < min 将会出错;
+   * @param{Array}RandomPragraphing 密文所使用的分段函数每段载荷上下限。传入 min 和 max，默认 20/80。min 小于 20, max 大于 200, 或者 max < min 将会出错;
    * @param{bool}PianwenMode 指定是否强制生成骈文密文，默认 false;
    * @param{bool}LogicMode 指定是否强制生成逻辑密文，默认 false;
    */
   constructor(
     PunctuationMark = true,
     RandomIndex = 50,
-    RandomPragraphing = [35, 80],
+    RandomPragraphing = [20, 80],
     PianwenMode = false,
     LogicMode = false,
     Traditional = false
@@ -221,7 +221,7 @@ export function Enc(
       : 50,
     WenyanConfigObj.RandomPragraphing !== undefined
       ? WenyanConfigObj.RanRandomPragraphingdomIndex
-      : [35, 80],
+      : [20, 80],
     WenyanConfigObj.PianwenMode !== undefined
       ? WenyanConfigObj.PianwenMode
       : false,

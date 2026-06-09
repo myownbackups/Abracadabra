@@ -458,9 +458,9 @@ export class WenyanSimulator {
    * @param{number}maxLen 指定一段密文的最高载荷量
    * @returns{Array} 返回处理后的数组
    */
-  distributePayload(totalLength, minLen = 35, maxLen = 80) {
+  distributePayload(totalLength, minLen = 20, maxLen = 80) {
     //传入非法的值将直接抛出错误
-    if (minLen < 35 || maxLen < minLen) {
+    if (minLen < 20 || maxLen > 200 || maxLen < minLen) {
       throw "Invalid Payload Distribution Argument.";
     }
     // 容错：如果总长甚至不够一个最小段落
@@ -507,7 +507,7 @@ export class WenyanSimulator {
   selectSentence(
     PayloadLength,
     RandomIndex = 0,
-    RandomPragraphing = [35, 80],
+    RandomPragraphing = [20, 80],
     p,
     l
   ) {
@@ -525,7 +525,8 @@ export class WenyanSimulator {
       throw "Contradictory Mode Setting";
     }
     if (
-      RandomPragraphing[0] < 35 ||
+      RandomPragraphing[0] < 20 ||
+      RandomPragraphing[1] > 200 ||
       RandomPragraphing[1] < RandomPragraphing[0]
     ) {
       throw "Invalid Payload Distribution Argument.";

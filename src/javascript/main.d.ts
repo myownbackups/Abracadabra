@@ -5,7 +5,7 @@ export interface WenyanConfig {
   PunctuationMark?: boolean;
   /** 密文算法的随机程度，越大随机性越强，默认 50，最大100，超过100将会出错; */
   RandomIndex?: number;
-  /** 指定超长密文所使用的分段函数每段载荷上下限。传入 min 和 max，默认 35/80。min 小于 35 或者 max < min 将会出错; **/
+  /** 指定超长密文所使用的分段函数每段载荷上下限。传入 min 和 max，默认 20/80。min 小于 20, max 大于 200, 或者 max < min 将会出错; */
   RandomPragraphing?: [number, number][];
   /** 指定是否强制生成骈文密文，默认 false; */
   PianwenMode?: boolean;
@@ -16,7 +16,7 @@ export interface WenyanConfig {
 }
 
 export interface AdvancedEncConfig {
-  /** 指定是否打开高级加密功能，默认 false/不开启; */
+  /** 指定是否启用高级加密功能，默认 false/不开启; */
   Enable?: boolean;
   /** 指定是否使用完整16字节IV，默认 true/开启*/
   UseStrongIV?: boolean;
@@ -39,6 +39,17 @@ export interface AdvancedEncConfig {
    * 注意，TOTP的安全性主要依赖于此BaseKey
    */
   TOTPBaseKey?: string;
+}
+
+//分段加密和分段传输的配置。
+//每段密文单独执行高级加密，但是，AONT在高级加密之后单独执行。
+export interface FlexibleTransferConfig {
+  /** 指定是否启用灵活传输功能，默认 false/不开启，想要启用此项，必须启用高级加密; */
+  Enable?: boolean;
+  /** 指定是否启用全有或全无转换(AONT)，默认 true/开启，开启后必须获得所有密文才可以解密完整内容，但是会导致密文变长，解密速度变缓慢*/
+  UseAONT?: boolean;
+  /** 指定临时消息ID，有助于防止混淆不同发送方的消息，默认-1为随机选择(0~4096)*/
+  MessengeID?: number;
 }
 
 export interface CallbackObj {
