@@ -30,7 +30,7 @@
 import * as Core from "./CoreHandler.js";
 import { preCheck_OLD, PreCheckResult, stringToUint8Array } from "./Misc.js";
 import { AdvancedEncConfig } from "./CoreHandler.js";
-import { decryptXiongyueSync } from "./WGlvbmd5dWVEZWNIZWxwZXI.js";
+import { decryptXiongyueSync } from "./XiongyueDecHelper.js";
 export class Abracadabra {
   //主类
 
