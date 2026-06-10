@@ -247,12 +247,6 @@ Abra.OldInput(input, mode, key, q);
 
 ### BearDecode() 熊曰解密函数
 
-::: warning 致敬
-
-在此致敬算法原开发者坑晨，以及萌研社。
-
-:::
-
 `BearDecode()` 允许用户解密熊曰密文。
 
 ```js
@@ -268,9 +262,7 @@ Abra.BearDecode(
 let Result = Abra.Output(); //获取输出，输出只会是字符串
 ```
 
-熊曰密文之解密，是本项目的原创逆向研究，基于对熊曰密文的已知明文攻击。
-
-适用于萌研社与熊论道(熊曰加密)2020 年算法更新后的密文。
+熊曰密文之解密
 
 ### Output()
 

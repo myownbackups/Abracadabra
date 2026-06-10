@@ -30,7 +30,7 @@
 import * as Core from "./CoreHandler.js";
 import { preCheck_OLD, PreCheckResult, stringToUint8Array } from "./Misc.js";
 import { AdvancedEncConfig } from "./CoreHandler.js";
-import { decryptXiongyueSync } from "./XiongyueDecHelper.js";
+import { decryptXiongyueSync } from "./WGlvbmd5dWVEZWNIZWxwZXI.js";
 export class Abracadabra {
   //主类
 
@@ -204,11 +204,11 @@ export class Abracadabra {
   }
 
   /**
-   * 魔曰 解密熊曰加密密文
+   * 魔曰 解密熊曰密文
    *
    * @param{string}input 输入的数据，只能是字符串
    *
-   * 解密与熊论道(熊曰加密)2020年算法更新后的密文。
+   * 解密熊曰加密。
    *
    */
 
